@@ -4,23 +4,22 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { WeatherAppComponent } from './app.component';
+
+import { HomeModule } from './../features/home/home.module';
+
+import { SharedModule } from './../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage
-  ],
+  declarations: [WeatherAppComponent],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(WeatherAppComponent),
+    SharedModule,
+    HomeModule,
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage
-  ],
+  entryComponents: [WeatherAppComponent],
   providers: [
     StatusBar,
     SplashScreen,
